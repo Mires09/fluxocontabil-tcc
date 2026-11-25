@@ -1,0 +1,25 @@
+{
+  "name": "FluxoContábil — Protótipo de Avaliação do TCC",
+  "short_name": "FluxoContábil",
+  "description": "Demonstração acadêmica com dados fictícios de fechamento contábil mensal",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8f8fc",
+  "theme_color": "#21133c",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
