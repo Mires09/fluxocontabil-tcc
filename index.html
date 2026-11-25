@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#21133c" />
+  <meta name="description" content="Protótipo interativo de avaliação do Sistema Inteligente para Fechamento Contábil Mensal. Demonstração com dados fictícios." />
+  <title>FluxoContábil — Protótipo de Avaliação do TCC</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon-192.png" type="image/png" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();window.fluxoInstallEvent=event;window.dispatchEvent(new Event('fluxo-install-ready'));});</script>
+  <link rel="stylesheet" href="access.css" />
+  <script src="app.js" defer></script>
+  <script src="access.js" defer></script>
+</head>
+<body>
+  <section id="accessGate" class="access-gate" aria-label="Acesso ao FluxoContábil">
+    <div class="access-panel">
+      <div class="access-brand"><span class="access-logo">✦</span><div><strong>Fluxo<span>Contábil</span></strong><small>PROTÓTIPO INTERATIVO · TCC</small></div></div>
+      <div class="access-eyebrow">BEM-VINDO À DEMONSTRAÇÃO</div>
+      <h1>Seu fechamento, mais organizado.</h1>
+      <p>Explore o sistema com dados fictícios. Escolha como deseja experimentar.</p>
+      <nav class="access-tabs" aria-label="Modo de acesso"><button type="button" class="access-tab selected" data-access-tab="visitor">Visitante</button><button type="button" class="access-tab" data-access-tab="login">Entrar</button><button type="button" class="access-tab" data-access-tab="register">Cadastrar-se</button></nav>
+      <div id="accessPane" aria-live="polite"></div>
+      <div class="install-panel" id="installPanel"><div><strong>📲 Instale o FluxoContábil</strong><p>Use no celular ou no computador, sem precisar procurar a opção no menu.</p></div><button type="button" id="installTrigger" class="install-trigger">Como instalar</button></div>
+      <div class="access-notice">Ambiente acadêmico demonstrativo. Não informe dados contábeis reais nem utilize senhas pessoais. As senhas são apenas para teste, não são verificadas por servidor e não devem ser reutilizadas. Os perfis são locais, sem sincronização entre dispositivos.</div>
+    </div>
+    <div class="access-aside"><div class="access-orbit">✦</div><span class="access-slogan">Organize. Confira. Investigue.</span><p>Uma experiência prática para conhecer o Sistema Inteligente para Fechamento Contábil Mensal.</p><div class="access-tags"><span>✓ Checklists</span><span>✓ Conferências</span><span>✓ Alertas</span></div></div>
+  </section>
+  <div id="app" class="app-shell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-logo" aria-hidden="true">✦</span><div><strong>Fluxo<span>Contábil</span></strong><small>PROTÓTIPO · TCC</small></div></div>
+      <div class="office-mini"><span class="office-avatar" id="officeAvatar">AC</span><div><b id="officeName">Aurora Contábil</b><small>Escritório fictício</small></div></div>
+      <p class="nav-label">ESPAÇO DE TRABALHO</p>
+      <nav id="mainNav" aria-label="Navegação principal"></nav>
+      <div class="sidebar-bottom"><div class="demo-rail"><span class="dot-live"></span><div><b>Ambiente demonstrativo</b><small>Nenhum dado real é utilizado.</small></div></div><button type="button" class="reset-link" data-action="reset">↻ Reiniciar demonstração</button></div>
+    </aside>
+    <div class="sidebar-scrim" id="scrim" data-action="menu-close"></div>
+    <div class="workspace">
+      <header class="topbar">
+        <button type="button" class="menu-button" data-action="menu-toggle" aria-label="Abrir menu">☰</button>
+        <div class="breadcrumb"><span class="crumb-office">Aurora Contábil</span><span class="crumb-slash">/</span><b id="crumbTitle">Visão geral</b></div>
+        <div class="top-controls"><span class="header-pill"><span class="dot-live"></span> Demonstração</span><span class="header-identity" title="Sessão demonstrativa">Acesso: <b id="sessionLabel">Visitante</b> · <b id="currentPersonName">Marina Oliveira</b></span><label class="role-control" for="periodSelect"><span>Competência</span><select id="periodSelect" aria-label="Selecionar mês de competência"></select></label><label class="role-control" for="officeSelect"><span>Escritório</span><select id="officeSelect" aria-label="Trocar escritório fictício" title="Somente Gestor pode trocar o cenário"><option value="aurora">Aurora Contábil</option><option value="nova">Violeta Contabilidade</option></select></label><label class="role-control" for="roleSelect"><span>Perfil</span><select id="roleSelect"><option value="GESTOR">Gestor</option><option value="CONTADOR">Contador</option></select></label><label class="role-control" for="userSelect"><span>Usuário</span><select id="userSelect" aria-label="Selecionar usuário fictício"></select></label><button id="accessSwitch" type="button" class="access-switch" title="Voltar à tela de acesso">Sair</button></div>
+      </header>
+      <main id="main" tabindex="-1" aria-live="polite"></main>
+      <footer class="site-footer">Protótipo acadêmico de avaliação • Informações e operações simuladas • Não utilizar dados contábeis reais.</footer>
+    </div>
+  </div>
+  <dialog id="modal" class="modal"><form method="dialog" id="modalContent"></form></dialog>
+  <div id="toast" role="status" aria-live="polite" class="toast"></div>
+  <script>if ("serviceWorker" in navigator && location.protocol !== "file:") window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));</script>
+</body>
+</html>
